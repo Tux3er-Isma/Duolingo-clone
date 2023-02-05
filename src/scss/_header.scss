@@ -1,5 +1,6 @@
 /*SCSS Files*/
 @use 'variables';
+@use 'mixins';
 
 /*Header Mobile Styles*/
 .header{
@@ -8,15 +9,21 @@
 
     .header__nav{
         background-color: variables.$header-bg-color;
-        display: flex;
         width: 100%;
-        justify-content: flex-start;
         height: 60px;
-        align-items: center;
 
-        .header__nav__logo{
-            height: 36px;
-            margin-left: 30px;
+        .header__nav__fixed-container{
+            position: fixed;
+            background-color: variables.$header-bg-color;
+            display: flex;
+            align-items: center;
+            height: 60px;
+            width: 100%;
+
+            .header__nav__fixed-container__logo{
+                height: 36px;
+                margin-left: 30px;
+            }
         }
     }
 
@@ -39,4 +46,47 @@
             }
         }
     }
+
+    .header__content{
+        display: flex;
+        flex-direction: column;
+
+        .header__content__earth-container{
+            margin-top: 150px;
+            display: flex;
+            justify-content: center;
+    
+            .header__content__earth-container__earth{
+                width: 192px;
+                height: 192px;
+            }
+        }
+
+        .header__content__information-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+    
+            .header__content__information-container__title{
+                font-family: variables.$din-round;
+                color: variables.$white;
+                text-align: center;
+            }
+    
+            .header__content__information-container__start-btn{
+                margin-top: 40px;
+                margin-bottom: 20px;
+                @include mixins.btns(variables.$start-btn, true, variables.$start-btn-hover, variables.$before-start-btn);
+            }
+            
+            .header__content__information-container__login-btn{
+                @include mixins.btns(variables.$header-bg-color, false, variables.$login-btn-hover, variables.$before-login-btn)
+            }
+        }
+    }
+}
+
+/*Header Desktop Styles*/
+@media only screen and (min-width: 1280px){
+
 }
