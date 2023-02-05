@@ -1,0 +1,42 @@
+/*SCSS Files*/
+@use 'variables';
+
+/*Header Mobile Styles*/
+.header{
+    height: 100vh;
+    background-color: variables.$header-bg-color;
+
+    .header__nav{
+        background-color: variables.$header-bg-color;
+        display: flex;
+        width: 100%;
+        justify-content: flex-start;
+        height: 60px;
+        align-items: center;
+
+        .header__nav__logo{
+            height: 36px;
+            margin-left: 30px;
+        }
+    }
+
+    .header__bubbles-container{
+        margin-left: 30px;
+
+        .header__bubbles-container__bubbles{
+            position: absolute;
+            background-color: variables.$white;
+            border-radius: 50%;
+
+            @keyframes bubbles{
+                0%{
+                    transform: translateY(-100vh);
+                }
+
+                100%{
+                    transform: translateY(100vh);
+                }
+            }
+        }
+    }
+}
