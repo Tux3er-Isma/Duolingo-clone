@@ -1,1 +1,29 @@
 /*SCSS Files*/
+@use 'reset';
+@use 'variables';
+@use 'mixins';
+@use 'header';
+
+/*General Styles*/
+body{
+    overflow-x: hidden;
+}
+
+.br-remove{
+    display: block;
+}
+
+.br-new{
+    display: none;
+}
+
+/*Desktop Styles*/
+@media only screen and (min-width: 1200px){
+    .br-remove{
+        display: none;
+    }
+
+    .br-new{
+        display: block;
+    }
+}
