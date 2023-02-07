@@ -373,6 +373,9 @@ template {
   width: 192px;
   height: 192px;
 }
+.header .header__content .header__content__earth-container .header__content__earth-container__flag {
+  display: none;
+}
 .header .header__content .header__content__information-container {
   display: flex;
   flex-direction: column;
@@ -399,6 +402,7 @@ template {
 }
 .header .header__content .header__content__information-container .header__content__information-container__start-btn:hover {
   background-color: #58ef00;
+  cursor: pointer;
 }
 .header .header__content .header__content__information-container .header__content__information-container__start-btn:active {
   box-shadow: none;
@@ -416,16 +420,110 @@ template {
 }
 .header .header__content .header__content__information-container .header__content__information-container__login-btn:hover {
   background-color: #235381;
+  cursor: pointer;
 }
 .header .header__content .header__content__information-container .header__content__information-container__login-btn:active {
   box-shadow: none;
 }
+.header .header__footer {
+  display: none;
+}
 
 /*Header Desktop Styles*/
+@media only screen and (min-width: 1200px) {
+  .header .header__nav .header__nav__fixed-container .header__nav__fixed-container__logo {
+    margin-left: 110px;
+  }
+  .header .header__content {
+    flex-direction: row;
+  }
+  .header .header__content .header__content__earth-container {
+    margin-top: 80px;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  .header .header__content .header__content__earth-container .header__content__earth-container__earth {
+    width: 360px;
+    height: 360px;
+    margin-left: 20px;
+  }
+  .header .header__content .header__content__earth-container .header__content__earth-container__flag {
+    display: inline-block;
+    width: 100px;
+    height: 80px;
+    position: relative;
+    bottom: 140px;
+    right: 30px;
+  }
+  .header .header__content .header__content__information-container {
+    margin-top: 100px;
+    margin-left: 100px;
+  }
+  .header .header__content .header__content__information-container .header__content__information-container__start-btn {
+    width: 320px;
+  }
+  .header .header__content .header__content__information-container .header__content__information-container__login-btn {
+    width: 320px;
+  }
+  .header .header__footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 60px;
+    background-color: #0a4a82;
+    position: absolute;
+    bottom: 0px;
+  }
+  .header .header__footer .header__footer__flags {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+  }
+  .header .header__footer .header__footer__flags .header__footer__flags__flag {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+  }
+  .header .header__footer .header__footer__flags .header__footer__flags__flag:hover {
+    cursor: pointer;
+  }
+  .header .header__footer .header__footer__flags .header__footer__flags__flag .header__footer__flags__flag__img {
+    width: 50px;
+    height: 40px;
+    margin-right: 5px;
+  }
+  .header .header__footer .header__footer__flags .header__footer__flags__flag .header__footer__flags__flag__text {
+    color: #fff;
+    font-family: "Din Round", sans-serif;
+    font-weight: 600;
+  }
+  .header .header__footer .header__footer__flags .header__footer__flags__flag .header__footer__flags__flag__text:hover {
+    text-decoration: underline;
+  }
+}
 /*SCSS Files*/
 /*General Styles*/
 body {
   overflow-x: hidden;
+}
+
+.br-remove {
+  display: block;
+}
+
+.br-new {
+  display: none;
+}
+
+/*Desktop Styles*/
+@media only screen and (min-width: 1200px) {
+  .br-remove {
+    display: none;
+  }
+  .br-new {
+    display: block;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
