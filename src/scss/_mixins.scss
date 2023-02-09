@@ -13,6 +13,7 @@
     border-radius: 20px;
     transition: all .5s;
     box-shadow: 0px 5px 0px 0px $shadow-bg-color;
+    outline: none;
     @if $border{
         border: $bg-color;
     }
