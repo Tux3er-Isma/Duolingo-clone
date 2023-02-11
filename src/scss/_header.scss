@@ -1,7 +1,6 @@
 /*SCSS Files*/
 @use 'variables';
 @use 'mixins';
-
 /*Header Mobile Styles*/
 .header{
     height: 100vh;
@@ -13,6 +12,8 @@
         height: 60px;
 
         .header__nav__fixed-container{
+            display: flex;
+            justify-content: space-between;
             position: fixed;
             z-index: 2;
             background-color: variables.$header-bg-color;
@@ -27,6 +28,33 @@
 
                 &:hover{
                     cursor: pointer;
+                }
+            }
+
+            .header__nav__fixed-container__btn-container{
+                display: none;
+                margin-right: 160px;
+
+                .header__nav__fixed-container__btn-container__start-btn{
+                    @include mixins.btns(variables.$start-btn, true, variables.$start-btn-hover, variables.$before-start-btn);
+                    width: 161px;
+                    height: 40px;
+                    font-size: 15px;
+                    margin-right: 10px
+                }
+
+                .header__nav__fixed-container__btn-container__login-btn{
+                    @include mixins.btns(variables.$header-bg-color, false, variables.$login-btn-hover, variables.$before-login-btn);
+                    width: 115px;
+                    height: 40px;
+                    font-size: 15px;
+                    background-color: variables.$white;
+                    color: variables.$header-bg-color;
+
+                    &:hover{
+                        background-color: variables.$header-bg-color;
+                        color: variables.$white;
+                    }
                 }
             }
         }
@@ -67,7 +95,7 @@
             }
 
             .header__content__earth-container__flag{
-                display: none;
+                display: block;
             }
         }
 
