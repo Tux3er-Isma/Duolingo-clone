@@ -1,6 +1,10 @@
 //Header Variables
 const header = document.querySelector('header');
 const nav = document.querySelector('.header__nav');
+const navFixedContainer = document.querySelector('.header__nav__fixed-container');
+const navFixedContainerBtnContainer = document.querySelector('.header__nav__fixed-container__btn-container');
+const headerContent = document.querySelector('.header__content');
+let startBtn = document.querySelector('.header__content__information-container__start-btn');
 const earthContainer = document.querySelector('.header__content__earth-container');
 let duolingoLogo = document.querySelector('.header__nav__fixed-container__logo');
 const bubblesContainer = document.querySelector('.header__bubbles-container');
@@ -11,6 +15,26 @@ const countries = ['inglés', 'francés', 'alemán', 'italiano', 'portugués', '
 const flagsArray = flagsContainer.childNodes;
 
 //Functions
+window.addEventListener('scroll', () =>{
+    let scroll = this.scrollY;
+    console.log("The page location is " +  scroll)
+    if (scroll >= 500){
+        console.log("You are in the main section ");
+        bubblesContainer.style.display = 'none';
+    } else {
+        bubblesContainer.style.display = 'flex';
+    }
+
+    if (window.screen.availWidth >= 1200){
+        if (scroll >= 600){
+            console.log("You are in the main section");
+            navFixedContainerBtnContainer.style.display = 'block';
+        } else {
+            navFixedContainerBtnContainer.style.display = 'none';
+        }
+    }
+})
+
 const createBubbles = (quantity) =>{
     for (let i = 0; i < quantity; i++){
         let bubbles = document.createElement('DIV');
@@ -63,11 +87,11 @@ if (window.screen.availWidth <= 480){
     });
 
     duolingoLogo.addEventListener('click', () =>{
+        title.innerHTML = `Duolingo - La mejor manera de aprender un idioma a nivel mundial`;
+        headerContent.style.display = 'flex';
         headerFooter.style.display = 'flex';
-        const earthContainerFlagsArray = document.querySelectorAll('.header__content__earth-container__flag');
-        earthContainerFlagsArray.forEach(element =>{
-            element.style.display = 'none';
-        });
+        let earthContainerFlag = document.querySelector('.header__content__earth-container__flag');
+        earthContainerFlag.style.display = 'none';
     });
 };
 
@@ -90,6 +114,5 @@ flagsArray.forEach(element =>{
         newFlag.classList.add('header__content__earth-container__flag');
 
         earthContainer.appendChild(newFlag);
-
     });
 });
