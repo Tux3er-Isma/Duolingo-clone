@@ -87,11 +87,12 @@ if (window.screen.availWidth <= 480){
     });
 
     duolingoLogo.addEventListener('click', () =>{
-        title.innerHTML = `Duolingo - La mejor manera de aprender un idioma a nivel mundial`;
         headerContent.style.display = 'flex';
         headerFooter.style.display = 'flex';
-        let earthContainerFlag = document.querySelector('.header__content__earth-container__flag');
-        earthContainerFlag.style.display = 'none';
+        let earthContainerFlag = document.querySelectorAll('.header__content__earth-container__flag');
+        earthContainerFlag.forEach(element =>{
+            element.style.display = 'none';
+        })
     });
 };
 
