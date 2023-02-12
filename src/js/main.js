@@ -10,21 +10,26 @@ if (window.screen.availWidth <= 480){
     //Functions
     const createMobileArticleTwo = () =>{
         //Variables
+        const imgContainer = document.createElement('PICTURE');
         let img = document.createElement('IMG');
         let title = document.createElement('H2');
         let informationContainer = document.createElement('DIV');
 
         //Attributes and Content
         img.setAttribute('src', 'https://d35aaqx5ub95lt.cloudfront.net/images/3816ddfd0658efd7bb713fd823053b82.svg');
+        img.setAttribute('alt', 'computer');
         title.textContent = 'Por qué te encantará aprender con Duolingo';
 
         //Classes
-        img.classList.add('main__article--two__text-content__img');
+        imgContainer.classList.add('main__article--two__text-content__img-container')
+        img.classList.add('main__article--two__text-content__img-container__img');
         title.classList.add('main__article--two__text-content__title');
+        title.classList.add('main__article__text-content__title');
         informationContainer.classList.add('main__article--two__text-content__information-container');
 
         //AppendChild
-        articleTwoTextContent.appendChild(img);
+        articleTwoTextContent.appendChild(imgContainer);
+        imgContainer.appendChild(img);
         articleTwoTextContent.appendChild(title);
         articleTwoTextContent.appendChild(informationContainer);
 
@@ -33,28 +38,31 @@ if (window.screen.availWidth <= 480){
             //Variables
             const container = document.createElement('DIV');
             let containerImg = document.createElement('IMG');
-            let containerTitle = document.createElement('H3');
-            let containerText = document.createElement('P');
+            const textContainer = document.createElement('DIV');
+            let textContainerTitle = document.createElement('H3');
+            let textContainerText = document.createElement('P');
 
             //Attributes
             containerImg.setAttribute('src', imgRoute);
             containerImg.setAttribute('alt', imgAlt);
 
             //TextContent
-            containerTitle.textContent = title;
-            containerText.textContent = text;
+            textContainerTitle.textContent = title;
+            textContainerText.textContent = text;
 
             //Classes
             container.classList.add('main__article--two__text-content__information-container__little-container')
             containerImg.classList.add('main__article--two__text-content__information-container__little-container__img');
-            containerTitle.classList.add('main__article--two__text-content__information-container__little-container__title');
-            containerText.classList.add('main__article--two__text-content__information-container__little-container__text');
+            textContainer.classList.add('main__article--two__text-content__information-container__little-container__text-container')
+            textContainerTitle.classList.add('main__article--two__text-content__information-container__little-container__text-container__title');
+            textContainerText.classList.add('main__article--two__text-content__information-container__little-container__text-container__text');
 
             //AppendChild
             informationContainer.appendChild(container);
             container.appendChild(containerImg);
-            container.appendChild(containerTitle);
-            container.appendChild(containerText);
+            container.appendChild(textContainer);
+            textContainer.appendChild(textContainerTitle);
+            textContainer.appendChild(textContainerText);
         }
 
         //Calling Functions
@@ -65,4 +73,77 @@ if (window.screen.availWidth <= 480){
     }
 
     createMobileArticleTwo();
+} else{
+    //Functions
+    const createDesktopArticleTwo = () =>{
+        //Variables
+        let title = document.createElement('H2');
+        const flexContainer = document.createElement('DIV');
+        const firstBlock = document.createElement('DIV');
+        let img = document.createElement('IMG');
+        const secondBlock = document.createElement('DIV');
+
+        //Attributes and Content
+        title.textContent = `Por qué te encantará aprender con Duolingo`;
+        img.setAttribute('src', 'https://d35aaqx5ub95lt.cloudfront.net/images/3816ddfd0658efd7bb713fd823053b82.svg');
+        img.setAttribute('alt', 'computer');
+
+        //Classes
+        title.classList.add('main__article--two__title');
+        flexContainer.classList.add('main__article--two__text-content__desktop__flex-container');
+        firstBlock.classList.add('main__article--two__text-content__desktop__flex-container__first-block');
+        img.classList.add('main__article--two__text-content__desktop__flex-container__img');
+        secondBlock.classList.add('main__article--two__text-content__desktop__flex-container__second-block');
+
+        //AppendChild
+        articleTwo.appendChild(title);
+        articleTwoTextContent.appendChild(flexContainer);
+        flexContainer.appendChild(firstBlock);
+        flexContainer.appendChild(img);
+        flexContainer.appendChild(secondBlock);
+
+        //Functions
+        const createInformationContainers = (container, imgRoute, imgAlt, title, text) =>{
+            //Variables
+            const informationContainer = document.createElement('DIV');
+            let img = document.createElement('IMG');
+            const textContainer = document.createElement('DIV');
+            let textContainerTitle = document.createElement('H3');
+            let textContainerText = document.createElement('P');
+
+            //Attributes and content
+            img.setAttribute('src', imgRoute);
+            img.setAttribute('alt', imgAlt);
+            textContainerTitle.textContent = title;
+            textContainerText.textContent = text;
+
+
+            //Classes
+            img.classList.add(`main__article--two__text-content__desktop__flex-container__${container}__information-container__img`);
+            informationContainer.classList.add(`main__article--two__text-content__desktop__flex-container__${container}__information-container`);
+            textContainer.classList.add(`main__article--two__text-content__desktop__flex-container__${container}__information-container__text-container`)
+            textContainerTitle.classList.add(`main__article--two__text-content__desktop__flex-container__${container}__information-container__text-container__title`);
+            textContainerText.classList.add(`main__article--two__text-content__desktop__flex-container__${container}__information-container__text-container__text`);
+
+            //AppendChild
+            if (container == 'first-block'){
+                firstBlock.appendChild(informationContainer);
+            } else {
+                secondBlock.appendChild(informationContainer);
+            }
+
+            informationContainer.appendChild(img);
+            informationContainer.appendChild(textContainer);
+            textContainer.appendChild(textContainerTitle);
+            textContainer.appendChild(textContainerText);
+        }
+
+            //Calling Functions
+            createInformationContainers('first-block', imgRoutes[0], 'fire', 'Efectivo y eficiente', 'Nuestros cursos enseñan a leer, escuchar y hablar en otro idioma de forma efectiva y eficiente. ¿Ya viste nuestros estudios más recientes?');
+            createInformationContainers('first-block', imgRoutes[1], 'correct', 'Aprendizaje personalizado', 'Al combinar lo mejor de la inteligencia artificial y las ciencias de idiomas, las lecciones se adaptan a tu desempeño para ayudarte a aprender al nivel adecuado y a tu propio ritmo.');
+            createInformationContainers('second-block', imgRoutes[2], 'crown', 'Mantente motivado', 'Al sentirse como un juego y ofrecerte desafíos divertidos, hacemos que sea fácil formar un hábito de aprendizaje de idiomas. Además, siempre contarás con el apoyo y los recordatorios de nuestra amistosa mascota, Duo, el búho.');
+            createInformationContainers('second-block', imgRoutes[3], 'woman', '¡Diviértete!', '¡El aprendizaje puede ser efectivo y divertido a la vez! Desarrolla tus habilidades cada día con ejercicios entretenidos y personajes entrañables.');
+    }
+
+    createDesktopArticleTwo();
 }
