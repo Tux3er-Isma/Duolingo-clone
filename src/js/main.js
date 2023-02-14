@@ -4,7 +4,7 @@ const article = document.querySelectorAll('.main__article');
 const articleTwo = document.querySelector('.main__article--two');
 const articleTwoTextContent = document.querySelector('.main__article--two__text-content');
 const imgRoutesArticleTwo = ['https://d35aaqx5ub95lt.cloudfront.net/images/1994201dce8a55a0017d59b58a035fc3.svg', 'https://d35aaqx5ub95lt.cloudfront.net/images/8f1e99a540ab7afcf5915e8852024e4c.svg', 'https://d35aaqx5ub95lt.cloudfront.net/images/splash/ebdcc22deaf0f85388fcb09e7ecfbe78.svg', 'https://d35aaqx5ub95lt.cloudfront.net/images/splash/a4d5fab3d1926c240cb2ae696b07d156.svg'];
-const imgRoutes = [];
+const imgRoutes = ['https://d35aaqx5ub95lt.cloudfront.net/images/super/8183c77cba99daf1e900fb5f9b0cc671.svg', 'https://d35aaqx5ub95lt.cloudfront.net/images/af5bf404fb8ea1ff96fdc9247a1e36e0.svg', 'https://d35aaqx5ub95lt.cloudfront.net/images/efficacyPage/5b117228254f9a9d8c7f541734f18225.svg'];
 const articleName = ['three', 'five', 'seven'];
 const articleThree = document.querySelector('.main__article--three');
 const articleFour = document.querySelector('.main__article--four');
@@ -155,26 +155,28 @@ if (window.screen.availWidth <= 480){
     createDesktopArticleTwo();
 }
 
-const createArticleStructure = (articleContainerDOM, imgRoute, imgAlt, titleContent, textCnt, linkContent) =>{
+const createArticleStructure = (articleContainerDOM, imgRoute, imgAlt, titleContent, textCnt, linkContent, linkDirection) =>{
     //Variables
-    const articleContainer = document.querySelector(`main__article--${articleContainerDOM}`);
+    const articleContainer = document.querySelector(`.main__article--${articleContainerDOM}`);
     let img = document.createElement('IMG');
     const informationContainer = document.createElement('DIV');
-    let title = document.createElement('H1');
+    let title = document.createElement('H2');
     let text = document.createElement('P');
     let link = document.createElement('A');
 
     //Attributes and Content
     img.setAttribute('src', imgRoute);
-    img.setAttribute(imgAlt);
+    img.setAttribute('alt', imgAlt);
     title.textContent = titleContent;
     text.textContent = textCnt;
     link.textContent = linkContent;
+    link.setAttribute('href', linkDirection);
 
     //Classes
     img.classList.add('main__article__img');
+    img.classList.add(`main__article--${articleContainerDOM}__img`);
     informationContainer.classList.add('main__article__information-container');
-    title.classList.addd('main__article__information-container__title');
+    title.classList.add('main__article__information-container__title');
     text.classList.add('main__article__information-container__text');
     link.classList.add('main__article__information-container__link');
 
@@ -187,3 +189,6 @@ const createArticleStructure = (articleContainerDOM, imgRoute, imgAlt, titleCont
 }
 
 //Calling Functions
+createArticleStructure(articleName[0], imgRoutes[0], 'Super Duolingo', 'Impulsa tu aprendizaje con Súper Duolingo', 'En Duolingo, puedes aprender idiomas totalmente gratis, pero puedes eliminar los anuncios y apoyar la educación gratuita con Súper. ¡Te regalamos 2 semanas gratis!', 'MÁS SOBRE SÚPER DUOLINGO', 'https://es.duolingo.com/super');
+createArticleStructure(articleName[1], imgRoutes[1], 'Duolingo-Schools', 'Duolingo for Schools', 'Una herramienta gratuita para maestros que ayuda a los estudiantes a aprender idiomas a través de la app de Duolingo, tanto dentro como fuera del salón de clases.', 'USA DUOLINGO EN TU SALÓN DE CLASES', 'https://schools.duolingo.com/');
+createArticleStructure(articleName[2], imgRoutes[2], 'Duolingo-Efficacy', 'Cursos efectivos y eficientes', 'Nuestros cursos enseñan a leer, escuchar y hablar de forma efectiva y eficiente. ¿Ya viste nuestros estudios más recientes?', 'MÁS SOBRE NUESTROS ESTUDIOS', 'https://es.duolingo.com/efficacy');
