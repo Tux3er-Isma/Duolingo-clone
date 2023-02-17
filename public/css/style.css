@@ -317,14 +317,16 @@ template {
 /*Color Variables*/
 /*General Color Variables*/
 /*Header Color Variables*/
+/*Main Color Variables*/
 /*Font Variables*/
 /*SCSS Files*/
 /*Mixins*/
 /*Header Mixins*/
+/*Main Mixins*/
 /*SCSS Files*/
 /*Header Mobile Styles*/
 .header {
-  height: 100vh;
+  min-height: 100vh;
   background-color: #235390;
 }
 .header .header__nav {
@@ -333,7 +335,10 @@ template {
   height: 60px;
 }
 .header .header__nav .header__nav__fixed-container {
+  display: flex;
+  justify-content: space-between;
   position: fixed;
+  z-index: 2;
   background-color: #235390;
   display: flex;
   align-items: center;
@@ -343,6 +348,65 @@ template {
 .header .header__nav .header__nav__fixed-container .header__nav__fixed-container__logo {
   height: 36px;
   margin-left: 30px;
+}
+.header .header__nav .header__nav__fixed-container .header__nav__fixed-container__logo:hover {
+  cursor: pointer;
+}
+.header .header__nav .header__nav__fixed-container .header__nav__fixed-container__btn-container {
+  display: none;
+  margin-right: 160px;
+}
+.header .header__nav .header__nav__fixed-container .header__nav__fixed-container__btn-container .header__nav__fixed-container__btn-container__start-btn {
+  color: #fff;
+  font-weight: bold;
+  font-family: "Din Round", sans-serif;
+  background-color: #58cc02;
+  width: 275px;
+  height: 50px;
+  border-radius: 20px;
+  transition: all 0.5s;
+  box-shadow: 0px 5px 0px 0px #58a700;
+  outline: none;
+  border: #58cc02;
+  width: 161px;
+  height: 40px;
+  font-size: 15px;
+  margin-right: 10px;
+}
+.header .header__nav .header__nav__fixed-container .header__nav__fixed-container__btn-container .header__nav__fixed-container__btn-container__start-btn:hover {
+  background-color: #58ef00;
+  cursor: pointer;
+}
+.header .header__nav .header__nav__fixed-container .header__nav__fixed-container__btn-container .header__nav__fixed-container__btn-container__start-btn:active {
+  box-shadow: none;
+}
+.header .header__nav .header__nav__fixed-container .header__nav__fixed-container__btn-container .header__nav__fixed-container__btn-container__login-btn {
+  color: #fff;
+  font-weight: bold;
+  font-family: "Din Round", sans-serif;
+  background-color: #235390;
+  width: 275px;
+  height: 50px;
+  border-radius: 20px;
+  transition: all 0.5s;
+  box-shadow: 0px 5px 0px 0px #252850;
+  outline: none;
+  width: 115px;
+  height: 40px;
+  font-size: 15px;
+  background-color: #fff;
+  color: #235390;
+}
+.header .header__nav .header__nav__fixed-container .header__nav__fixed-container__btn-container .header__nav__fixed-container__btn-container__login-btn:hover {
+  background-color: #235381;
+  cursor: pointer;
+}
+.header .header__nav .header__nav__fixed-container .header__nav__fixed-container__btn-container .header__nav__fixed-container__btn-container__login-btn:active {
+  box-shadow: none;
+}
+.header .header__nav .header__nav__fixed-container .header__nav__fixed-container__btn-container .header__nav__fixed-container__btn-container__login-btn:hover {
+  background-color: #235390;
+  color: #fff;
 }
 .header .header__bubbles-container {
   margin-left: 30px;
@@ -374,7 +438,7 @@ template {
   height: 192px;
 }
 .header .header__content .header__content__earth-container .header__content__earth-container__flag {
-  display: none;
+  display: block;
 }
 .header .header__content .header__content__information-container {
   display: flex;
@@ -398,6 +462,7 @@ template {
   border-radius: 20px;
   transition: all 0.5s;
   box-shadow: 0px 5px 0px 0px #58a700;
+  outline: none;
   border: #58cc02;
 }
 .header .header__content .header__content__information-container .header__content__information-container__start-btn:hover {
@@ -417,6 +482,7 @@ template {
   border-radius: 20px;
   transition: all 0.5s;
   box-shadow: 0px 5px 0px 0px #252850;
+  outline: none;
 }
 .header .header__content .header__content__information-container .header__content__information-container__login-btn:hover {
   background-color: #235381;
@@ -503,9 +569,312 @@ template {
   }
 }
 /*SCSS Files*/
+/*Responsive Mobile Main Styles*/
+.main .main__article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.main .main__article .main__article__text-content .main__article__text-content__title {
+  font-family: "Din Round", sans-serif;
+  color: #3c3c3c;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+.main .main__article .main__article__text-content .main__article__text-content__text {
+  font-family: "Din Round", sans-serif;
+  color: #777777;
+  text-align: center;
+}
+.main .main__article .main__article__information-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.main .main__article .main__article__information-container .main__article__information-container__title {
+  font-family: "Din Round", sans-serif;
+  color: #3c3c3c;
+  text-align: center;
+}
+.main .main__article .main__article__information-container .main__article__information-container__text {
+  font-family: "Din Round", sans-serif;
+  color: #777777;
+  text-align: center;
+}
+.main .main__article .main__article__information-container .main__article__information-container__link {
+  color: #1cb0f6;
+  font-family: "Din Round", sans-serif;
+  font-weight: bold;
+  text-decoration: none;
+}
+.main .main__article .main__article__information-container .main__article__information-container__link:hover {
+  text-decoration: underline;
+}
+.main .main__article .main__article__information-container .main__article__information-container__btn-container {
+  display: flex;
+  flex-direction: column;
+}
+.main .main__article .main__article__information-container .main__article__information-container__btn-container .main__article__information-container__btn-container__btn {
+  width: 192px;
+  height: 70px;
+  background-color: #fff;
+  border: 2px solid #e5e5e5;
+  box-shadow: 0px 2.5px 0px 0px #e5e5e5;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  transition: all 0.5s;
+}
+.main .main__article .main__article__information-container .main__article__information-container__btn-container .main__article__information-container__btn-container__btn:hover {
+  cursor: pointer;
+  background-color: #d4d4d4;
+}
+.main .main__article .main__article__information-container .main__article__information-container__btn-container .main__article__information-container__btn-container__btn:active {
+  box-shadow: none;
+}
+.main .main__article .main__article__information-container .main__article__information-container__btn-container .main__article__information-container__btn-container__btn .main__article__information-container__btn-container__btn__img {
+  font-size: 34px;
+  color: #4b4b4b;
+}
+.main .main__article .main__article__information-container .main__article__information-container__btn-container .main__article__information-container__btn-container__btn .main__article__information-container__btn-container__btn__text {
+  font-family: "Din Round", sans-serif;
+  color: #4b4b4b;
+  font-size: 13px;
+  text-align: initial;
+}
+.main .main__article .main__article__information-container .main__article__information-container__btn-container .main__article__information-container__btn-container__btn .main__article__information-container__btn-container__btn__text .main__article__information-container__btn-container__btn__text__platform {
+  font-weight: bold;
+  color: #000;
+  font-size: 16px;
+}
+.main .main__article--one {
+  margin-top: 70px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.main .main__article--one .main__article--one__img {
+  width: 185px;
+  height: 145px;
+  margin-bottom: 20px;
+}
+.main .main__article--one .main__article--one__title {
+  text-align: center;
+}
+.main .main__article--two {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.main .main__article--two .main__article--two__text-content .main__article--two__text-content__img-container {
+  display: flex;
+  justify-content: center;
+}
+.main .main__article--two .main__article--two__text-content .main__article--two__text-content__information-container .main__article--two__text-content__information-container__little-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.main .main__article--two .main__article--two__text-content .main__article--two__text-content__information-container .main__article--two__text-content__information-container__little-container .main__article--two__text-content__information-container__little-container__img {
+  width: 43px;
+  height: 43px;
+  margin-right: 20px;
+  position: relative;
+  top: 5px;
+}
+.main .main__article--two .main__article--two__text-content .main__article--two__text-content__information-container .main__article--two__text-content__information-container__little-container .main__article--two__text-content__information-container__little-container__text-container {
+  width: 300px;
+}
+.main .main__article--two .main__article--two__text-content .main__article--two__text-content__information-container .main__article--two__text-content__information-container__little-container .main__article--two__text-content__information-container__little-container__text-container .main__article--two__text-content__information-container__little-container__text-container__title {
+  font-family: "Din Round", sans-serif;
+  color: #3c3c3c;
+  font-size: 19px;
+}
+.main .main__article--two .main__article--two__text-content .main__article--two__text-content__information-container .main__article--two__text-content__information-container__little-container .main__article--two__text-content__information-container__little-container__text-container .main__article--two__text-content__information-container__little-container__text-container__text {
+  font-family: "Din Round", sans-serif;
+  color: #777777;
+  font-size: 14px;
+}
+.main .main__article--three .main__article--three__img {
+  width: 185px;
+  height: 180px;
+}
+.main .main__article--four .main__article--four__information-container {
+  order: 2;
+}
+.main .main__article--four .main__article--four__img {
+  order: 1;
+  width: 182px;
+  height: 220px;
+}
+.main .main__article--five .main__article--five__img {
+  width: 245px;
+  height: 162px;
+}
+.main .main__article--six {
+  margin-bottom: 40px;
+}
+.main .main__article--six .main__article--six__img {
+  width: 245px;
+  height: 162px;
+}
+.main .main__article--seven .main__article--seven__img {
+  width: 185px;
+  height: 164px;
+}
+
+/*Responsive Dektop Main Styles*/
+@media only screen and (min-width: 1200px) {
+  .main .main__article {
+    flex-direction: row;
+    justify-content: center;
+  }
+  .main .main__article .main__article__text-content .main__article__text-content__text {
+    text-align: initial;
+  }
+  .main .main__article .main__article__information-container {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .main .main__article .main__article__information-container .main__article__information-container__title {
+    text-align: initial;
+    margin-bottom: 25px;
+  }
+  .main .main__article .main__article__information-container .main__article__information-container__text {
+    text-align: initial;
+    font-size: 16px;
+    margin-bottom: 24px;
+  }
+  .main .main__article .main__article__information-container .main__article__information-container__btn-container {
+    flex-direction: row;
+  }
+  .main .main__article .main__article__information-container .main__article__information-container__btn-container .main__article__information-container__btn-container__btn {
+    margin-right: 20px;
+    margin-bottom: 0px;
+  }
+  .main .main__article .main__article__img {
+    margin-right: 48px;
+  }
+  .main .main__article--one {
+    flex-direction: row;
+    justify-content: center;
+  }
+  .main .main__article--one .main__article--one__text-content .main__article__text-content__text {
+    margin-left: 140px;
+  }
+  .main .main__article--two {
+    display: flex;
+    flex-direction: column;
+  }
+  .main .main__article--two .main__article--two__title {
+    font-family: "Din Round", sans-serif;
+    color: #3c3c3c;
+    text-align: center;
+    font-size: 24px;
+    order: 1;
+  }
+  .main .main__article--two .main__article--two__text-content {
+    display: flex;
+    justify-content: center;
+    order: 2;
+  }
+  .main .main__article--two .main__article--two__text-content .main__article--two__text-content__desktop__flex-container {
+    display: flex;
+  }
+  .main .main__article--two .main__article--two__text-content .main__article--two__text-content__desktop__flex-container .main__article--two__text-content__desktop__flex-container__first-block {
+    display: flex;
+    order: 1;
+    flex-direction: column;
+  }
+  .main .main__article--two .main__article--two__text-content .main__article--two__text-content__desktop__flex-container .main__article--two__text-content__desktop__flex-container__first-block .main__article--two__text-content__desktop__flex-container__first-block__information-container {
+    display: flex;
+    align-items: flex-start;
+  }
+  .main .main__article--two .main__article--two__text-content .main__article--two__text-content__desktop__flex-container .main__article--two__text-content__desktop__flex-container__first-block .main__article--two__text-content__desktop__flex-container__first-block__information-container .main__article--two__text-content__desktop__flex-container__first-block__information-container__img {
+    width: 43px;
+    height: 43px;
+    position: relative;
+    top: 7.5px;
+  }
+  .main .main__article--two .main__article--two__text-content .main__article--two__text-content__desktop__flex-container .main__article--two__text-content__desktop__flex-container__first-block .main__article--two__text-content__desktop__flex-container__first-block__information-container .main__article--two__text-content__desktop__flex-container__first-block__information-container__text-container {
+    order: 2;
+    width: 300px;
+  }
+  .main .main__article--two .main__article--two__text-content .main__article--two__text-content__desktop__flex-container .main__article--two__text-content__desktop__flex-container__first-block .main__article--two__text-content__desktop__flex-container__first-block__information-container .main__article--two__text-content__desktop__flex-container__first-block__information-container__text-container .main__article--two__text-content__desktop__flex-container__first-block__information-container__text-container__title {
+    font-family: "Din Round", sans-serif;
+    color: #3c3c3c;
+    font-size: 19px;
+  }
+  .main .main__article--two .main__article--two__text-content .main__article--two__text-content__desktop__flex-container .main__article--two__text-content__desktop__flex-container__first-block .main__article--two__text-content__desktop__flex-container__first-block__information-container .main__article--two__text-content__desktop__flex-container__first-block__information-container__text-container .main__article--two__text-content__desktop__flex-container__first-block__information-container__text-container__text {
+    font-family: "Din Round", sans-serif;
+    color: #777777;
+    font-size: 16px;
+    margin-right: 50px;
+  }
+  .main .main__article--two .main__article--two__text-content .main__article--two__text-content__desktop__flex-container .main__article--two__text-content__desktop__flex-container__img {
+    order: 2;
+  }
+  .main .main__article--two .main__article--two__text-content .main__article--two__text-content__desktop__flex-container .main__article--two__text-content__desktop__flex-container__second-block {
+    display: flex;
+    order: 3;
+    flex-direction: column;
+  }
+  .main .main__article--two .main__article--two__text-content .main__article--two__text-content__desktop__flex-container .main__article--two__text-content__desktop__flex-container__second-block .main__article--two__text-content__desktop__flex-container__second-block__information-container {
+    display: flex;
+    justify-content: flex-start;
+  }
+  .main .main__article--two .main__article--two__text-content .main__article--two__text-content__desktop__flex-container .main__article--two__text-content__desktop__flex-container__second-block .main__article--two__text-content__desktop__flex-container__second-block__information-container .main__article--two__text-content__desktop__flex-container__second-block__information-container__img {
+    width: 43px;
+    height: 43px;
+    position: relative;
+    top: 7.5px;
+    margin-left: 50px;
+    margin-right: 10px;
+  }
+  .main .main__article--two .main__article--two__text-content .main__article--two__text-content__desktop__flex-container .main__article--two__text-content__desktop__flex-container__second-block .main__article--two__text-content__desktop__flex-container__second-block__information-container .main__article--two__text-content__desktop__flex-container__second-block__information-container__text-container {
+    width: 300px;
+  }
+  .main .main__article--two .main__article--two__text-content .main__article--two__text-content__desktop__flex-container .main__article--two__text-content__desktop__flex-container__second-block .main__article--two__text-content__desktop__flex-container__second-block__information-container .main__article--two__text-content__desktop__flex-container__second-block__information-container__text-container .main__article--two__text-content__desktop__flex-container__second-block__information-container__text-container__title {
+    font-size: 19px;
+    font-family: "Din Round", sans-serif;
+    color: #3c3c3c;
+  }
+  .main .main__article--two .main__article--two__text-content .main__article--two__text-content__desktop__flex-container .main__article--two__text-content__desktop__flex-container__second-block .main__article--two__text-content__desktop__flex-container__second-block__information-container .main__article--two__text-content__desktop__flex-container__second-block__information-container__text-container .main__article--two__text-content__desktop__flex-container__second-block__information-container__text-container__text {
+    color: #777777;
+    font-family: "Din Round", sans-serif;
+    font-size: 16px;
+  }
+  .main .main__article--four .main__article--four__information-container {
+    order: 1;
+  }
+  .main .main__article--four .main__article--four__img {
+    order: 2;
+    margin-left: 48px;
+  }
+  .main .main__article--three, .main .main__article--four, .main .main__article--five, .main .main__article--seven {
+    display: flex;
+    min-height: 300px;
+    flex-direction: row;
+    justify-content: center;
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+}
+/*SCSS Files*/
 /*General Styles*/
+* {
+  scroll-behavior: smooth;
+}
+
 body {
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 .br-remove {
@@ -516,6 +885,15 @@ body {
   display: none;
 }
 
+hr {
+  width: 100%;
+  border: 1px solid #999999;
+}
+
+a {
+  text-decoration: none;
+}
+
 /*Desktop Styles*/
 @media only screen and (min-width: 1200px) {
   .br-remove {
@@ -523,6 +901,9 @@ body {
   }
   .br-new {
     display: block;
+  }
+  hr {
+    width: 80%;
   }
 }
 
