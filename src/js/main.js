@@ -1,6 +1,8 @@
 //Variables
 const main = document.querySelector('main');
 const article = document.querySelectorAll('.main__article');
+const articleBtnContainer = document.querySelector('.main__article__information-container__btn-container');
+const platfromClasses = ['fa-apple', 'fa-google-play'];
 const articleTwo = document.querySelector('.main__article--two');
 const articleTwoTextContent = document.querySelector('.main__article--two__text-content');
 const imgRoutesArticleTwo = ['https://d35aaqx5ub95lt.cloudfront.net/images/1994201dce8a55a0017d59b58a035fc3.svg', 'https://d35aaqx5ub95lt.cloudfront.net/images/8f1e99a540ab7afcf5915e8852024e4c.svg', 'https://d35aaqx5ub95lt.cloudfront.net/images/splash/ebdcc22deaf0f85388fcb09e7ecfbe78.svg', 'https://d35aaqx5ub95lt.cloudfront.net/images/splash/a4d5fab3d1926c240cb2ae696b07d156.svg'];
@@ -11,6 +13,7 @@ const articleFour = document.querySelector('.main__article--four');
 const articleFive = document.querySelector('.main__article--five');
 const articleSix = document.querySelector('.main__article--six');
 const articleSeven = document.querySelector('.main__article--seven');
+let lineBreak = '<br>';
 
 //Conditions
 if (window.screen.availWidth <= 480){
@@ -168,7 +171,7 @@ const createArticleStructure = (articleContainerDOM, imgRoute, imgAlt, titleCont
     img.setAttribute('src', imgRoute);
     img.setAttribute('alt', imgAlt);
     title.textContent = titleContent;
-    text.textContent = textCnt;
+    text.innerHTML = textCnt;
     link.textContent = linkContent;
     link.setAttribute('href', linkDirection);
 
@@ -188,7 +191,40 @@ const createArticleStructure = (articleContainerDOM, imgRoute, imgAlt, titleCont
     informationContainer.appendChild(link);
 }
 
+const createBtnDownloader = (imgClass, linkRoute, platfromText, txtContent) =>{
+    //Variables
+    let link = document.createElement('A');
+    let mainBtn = document.createElement('BUTTON');
+    let img = document.createElement('I');
+    let text = document.createElement('P');
+    let platfrom = document.createElement('SPAN');
+
+    //Content and Attributes
+    link.setAttribute('href', linkRoute);
+    mainBtn.setAttribute('title', platfromText);
+    platfrom.textContent = platfromText;
+    text.innerHTML = txtContent + lineBreak;
+
+    //Classes
+    mainBtn.classList.add('main__article__information-container__btn-container__btn');
+    img.classList.add('main__article__information-container__btn-container__btn__img');
+    img.classList.add('fa-brands');
+    img.classList.add(imgClass);
+    text.classList.add('main__article__information-container__btn-container__btn__text');
+    platfrom.classList.add('main__article__information-container__btn-container__btn__text__platform');
+
+    //Append Child
+    articleBtnContainer.appendChild(link);
+    link.appendChild(mainBtn);
+    mainBtn.appendChild(img);
+    mainBtn.appendChild(text);
+    text.appendChild(platfrom);
+}
+
 //Calling Functions
-createArticleStructure(articleName[0], imgRoutes[0], 'Super Duolingo', 'Impulsa tu aprendizaje con Súper Duolingo', 'En Duolingo, puedes aprender idiomas totalmente gratis, pero puedes eliminar los anuncios y apoyar la educación gratuita con Súper. ¡Te regalamos 2 semanas gratis!', 'MÁS SOBRE SÚPER DUOLINGO', 'https://es.duolingo.com/super');
-createArticleStructure(articleName[1], imgRoutes[1], 'Duolingo-Schools', 'Duolingo for Schools', 'Una herramienta gratuita para maestros que ayuda a los estudiantes a aprender idiomas a través de la app de Duolingo, tanto dentro como fuera del salón de clases.', 'USA DUOLINGO EN TU SALÓN DE CLASES', 'https://schools.duolingo.com/');
-createArticleStructure(articleName[2], imgRoutes[2], 'Duolingo-Efficacy', 'Cursos efectivos y eficientes', 'Nuestros cursos enseñan a leer, escuchar y hablar de forma efectiva y eficiente. ¿Ya viste nuestros estudios más recientes?', 'MÁS SOBRE NUESTROS ESTUDIOS', 'https://es.duolingo.com/efficacy');
+createArticleStructure(articleName[0], imgRoutes[0], 'Super Duolingo', 'Impulsa tu aprendizaje con Súper Duolingo', `En Duolingo, puedes aprender idiomas totalmente gratis, pero puedes eliminar los anuncios y apoyar${lineBreak}la educación gratuita con Súper. ¡Te regalamos 2 semanas gratis!`, 'MÁS SOBRE SÚPER DUOLINGO', 'https://es.duolingo.com/super');
+createArticleStructure(articleName[1], imgRoutes[1], 'Duolingo-Schools', 'Duolingo for Schools', `Una herramienta gratuita para maestros que ayuda a los estudiantes a aprender idiomas a${lineBreak}través de la app de Duolingo, tanto dentro como fuera del salón de clases.`, 'USA DUOLINGO EN TU SALÓN DE CLASES', 'https://schools.duolingo.com/');
+createArticleStructure(articleName[2], imgRoutes[2], 'Duolingo-Efficacy', 'Cursos efectivos y eficientes', `Nuestros cursos enseñan a leer, escuchar y hablar de forma efectiva y eficiente. ¿Ya viste nuestros${lineBreak}estudios más recientes?`, 'MÁS SOBRE NUESTROS ESTUDIOS', 'https://es.duolingo.com/efficacy');
+
+createBtnDownloader(platfromClasses[0], 'https://apps.apple.com/app/id570060128?mt=8&pt=1374442&ct=Product+Test%3A+Mobile+web+download+banners+on+splash', 'App Store', 'Descárgalo en la');
+createBtnDownloader(platfromClasses[1], 'https://play.google.com/store/apps/details?hl=es&id=com.duolingo&referrer=utm_source%3Dduolingo.com%26utm_medium%3Dduolingo_web%26utm_content%3Ddownload_button%26utm_campaign%3Dsplash', 'Google play', 'Disponible en')
