@@ -3,7 +3,7 @@
 @use 'mixins';
 /*Header Mobile Styles*/
 .header{
-    height: 100vh;
+    min-height: 100vh;
     background-color: variables.$header-bg-color;
 
     .header__nav{
