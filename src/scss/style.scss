@@ -6,9 +6,13 @@
 @use 'main';
 
 /*General Styles*/
+*{
+    scroll-behavior: smooth;
+}
+
 body{
     overflow-x: hidden;
-    height: 300vh;
+    scroll-behavior: smooth;
 }
 
 .br-remove{
@@ -22,6 +26,10 @@ body{
 hr{
     width: 100%;
     border: 1px solid variables.$hr-color;
+}
+
+a{
+    text-decoration: none;
 }
 
 /*Desktop Styles*/
