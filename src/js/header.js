@@ -17,7 +17,6 @@ const flagsArray = flagsContainer.childNodes;
 //Functions
 window.addEventListener('scroll', () =>{
     let scroll = this.scrollY;
-    console.log("The page location is " +  scroll)
     if (scroll >= 500){
         console.log("You are in the main section ");
         bubblesContainer.style.display = 'none';
