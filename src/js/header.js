@@ -25,7 +25,7 @@ window.addEventListener('scroll', () =>{
     }
 
     if (window.screen.availWidth >= 1200){
-        if (scroll >= 600){
+        if (scroll >= 600 && scroll <= 3100){
             console.log("You are in the main section");
             navFixedContainerBtnContainer.style.display = 'block';
         } else {
