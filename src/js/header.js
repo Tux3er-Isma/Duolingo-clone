@@ -18,7 +18,8 @@ const flagsArray = flagsContainer.childNodes;
 window.addEventListener('scroll', () =>{
     let scroll = this.scrollY;
     if (scroll >= 500){
-        console.log("You are in the main section ");
+        console.log('You are in: ' + scroll);
+        console.log("You are in the main section");
         bubblesContainer.style.display = 'none';
     } else {
         bubblesContainer.style.display = 'flex';
