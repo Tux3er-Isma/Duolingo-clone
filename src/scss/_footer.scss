@@ -1,0 +1,105 @@
+/*SCSS Files*/
+@use 'variables';
+@use 'mixins';
+
+/*Footer Styles*/
+.footer{
+    background-color: variables.$header-bg-color;
+
+    .footer__bls-container{
+
+        .footer__bls-container__bls{
+            background-color: variables.$white;
+            position: absolute;
+            border-radius: 50%;
+
+            @keyframes fm-bubbles{
+                0%{
+                    transform: translateY(0px);
+                }
+
+                100%{
+                    transform: translateY(1000px);
+                }
+            }
+
+            @keyframes fd-bubbles{
+                0%{
+                    transform: translateY(0px);
+                }
+
+                100%{
+                    transform: translateY(320px);
+                }
+            }
+        }
+    }
+
+    .footer__information-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 80px;
+
+        .footer__information-container__title{
+            color: variables.$white;
+            font-family: variables.$din-round;
+        }
+
+        .footer__information-container__btn{
+            @include mixins.btns(variables.$start-btn, true, variables.$start-btn-hover, variables.$before-start-btn);
+            width: 155px;
+            height: 46px;
+        }
+    }
+
+    .footer__sources{
+        padding-top: 50px;
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: 40px;
+
+        .footer__sources__link-container{
+            width: 170px;
+
+            .footer__sources__link-container__title{
+                color: variables.$white;
+                font-family: variables.$din-round;
+            }
+            
+            .footer__sources__link-container__link{
+                color: variables.$white;
+                font-family: variables.$din-round;
+                font-size: 15px;
+                opacity: .5;
+
+                &:hover{
+                    text-decoration: underline;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+/*Responsive Footer Desktop Styles*/
+@media only screen and (min-width: 1200px){
+    .footer{
+        height: 100%;
+
+        .footer__information-container{
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            .footer__information-container__title{
+                margin-right: 70px;
+            }
+        }
+
+        .footer__sources{
+            justify-content: space-around;
+            margin-left: 0px;
+        }
+    }
+}
