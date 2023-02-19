@@ -9,6 +9,7 @@
 - [Preview](#preview)
    - [Desktop 🖥️](#desktop-preview)
    - [Mobile 📱](#mobile-preview)
+- [Live](#live)
 - [Overview](#overview)
    - [UI](#ui)
 - [Built with](#built-with)
@@ -21,6 +22,9 @@
 ![](https://github.com/Tux3er-Isma/Duolingo-clone/blob/master/public/assets/img/design/desktop.png)
 ### Mobile-Preview
 ![](https://github.com/Tux3er-Isma/Duolingo-clone/blob/master/public/assets/img/design/mobile.png)
+
+# Live
+Site url: https://duolingo-frontend-clone.netlify.app/
 
 # Overview
 ### UI
